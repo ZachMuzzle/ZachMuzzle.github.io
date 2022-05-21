@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-//FOR MODAL IMAGE GALLARY IN PROJECTS SECTION.
+//FOR MODAL IMAGE GALLERY IN PROJECTS SECTION.
 // Get the modal
 var modal = document.getElementById("myModal");
 
