@@ -11385,4 +11385,8 @@ section {
   .modal-content {
     width: 100%;
   }
-} 
+}
+
+.not-bold {
+  font-weight: normal;
+}
