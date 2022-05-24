@@ -58,3 +58,24 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() {
   modal.style.display = "none";
 } 
+/*
+ * Get constant change of width so not just on first page load
+ * If width is between 425 and 0 call mobileExit to close screen
+ * Otherwise remove event listener.
+ */
+
+window.onresize = window.onload = function() {
+    let width;
+    width = this.innerWidth;
+    if (width <= 425 && width >= 0) {
+        modal.addEventListener('click',mobileExit);
+    }
+    else {
+        modal.removeEventListener('click',mobileExit);
+    }
+}
+
+function mobileExit() {
+    modal.style.display = "none";
+}
+
