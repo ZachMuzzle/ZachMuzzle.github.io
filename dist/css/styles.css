@@ -11399,5 +11399,24 @@ section {
   height: 500px;
 }
 
+/* New background colors */
 
+.dark-bg {
+  background-color: #d8c3a5;
+}
 
+.text-color-header {
+  color: #8e8d8a;
+}
+
+.light-bg {
+  background-color: #eae7dc;
+}
+
+a {
+  color: #e85a4f;
+}
+
+a:hover {
+  color: #e98074;
+}
