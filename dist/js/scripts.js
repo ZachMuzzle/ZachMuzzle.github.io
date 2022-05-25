@@ -79,3 +79,23 @@ function mobileExit() {
     modal.style.display = "none";
 }
 
+/* Mouse over for links */
+const link_popup = document.getElementsByClassName("link");
+const iframeover = document.getElementsByClassName("iframe-preview");
+const iframeout = document.getElementsByClassName("iframe-preview");
+
+link_popup[0].onmouseover = function() {hoverLink()};
+iframeover[0].onmouseover = function() {mouseOver()};
+iframeout[0].onmouseout = function() {mouseOut()};
+
+function mouseOver() {
+    iframeover[0].style.display = "block";
+}
+
+function mouseOut() {
+    iframeout[0].style.display = "none";
+}
+
+function hoverLink() {
+    iframeover[0].style.display = "block";
+}
