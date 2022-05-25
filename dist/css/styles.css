@@ -11390,3 +11390,13 @@ section {
 .not-bold {
   font-weight: normal;
 }
+
+.box .iframe-preview{
+  position: relative;
+  display: none;
+  z-index: auto;
+  width: 100%;
+}
+
+
+
