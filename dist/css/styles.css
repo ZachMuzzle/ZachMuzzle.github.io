@@ -11421,3 +11421,27 @@ a {
 a:hover {
   color: #e98074;
 }
+
+@media only screen and (min-device-width:1026px) {
+
+  .image-resume {
+    display: none;
+  }
+
+  .col-lg-8 > object {
+    display: block;
+  }
+  
+}
+/* max-device-width: width of the devices entire rendering area = ACTUAL DEVICES SCREEN */
+@media only screen and (max-device-width:1025px) {
+  
+
+.iframe-preview {
+  display: block;
+}
+
+.col-lg-8 > object {
+  display: none;
+}
+}
