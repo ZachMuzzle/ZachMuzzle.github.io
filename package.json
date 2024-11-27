@@ -9,6 +9,8 @@
     "build:backend": "tsc --project tsconfig.backend.json",
     "build:frontend": "tsc --project tsconfig.frontend.json",
     "build": "npm run build:backend && npm run build:frontend",
+    "deploy": "npm run build && npm run prepare-pages && gh-pages -d build",
+    "prepare-pages": "rm -rf build && mkdir build && cp -r public/* build && cp -r dist/* build",
     "dev": "nodemon dist/server.js"
   },
   "keywords": [],
@@ -20,6 +22,7 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.5",
+    "gh-pages": "^6.2.0",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
