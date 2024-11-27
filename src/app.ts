@@ -19,10 +19,11 @@ app.use(express.urlencoded({ extended: false }));
 
 // Use the routes
 app.use('/', indexRouter);
-app.use('/about-me', aboutMeRouter);
-app.use('/resume', resumeRouter);
-app.use('/projects', projectsRouter);
-app.use('/contact', contactRouter);
+// Routes not needed unless we deploy backend to another service.
+// app.use('/about-me', aboutMeRouter);
+// app.use('/resume', resumeRouter);
+// app.use('/projects', projectsRouter);
+// app.use('/contact', contactRouter);
 
 // Catch-all route for 404
 app.use((req, res,) => {
