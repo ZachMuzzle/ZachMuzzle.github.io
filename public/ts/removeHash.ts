@@ -1,3 +1,7 @@
+/* 
+* Hashing from frontend not needed when only using github pages since backend isn't used
+* Will need to deploy backend to another server
+
 document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (this: HTMLAnchorElement, e: MouseEvent) {
         e.preventDefault();
@@ -26,3 +30,4 @@ document.addEventListener('DOMContentLoaded', () => {
         history.pushState({}, document.title, newUrl);
     }
 });
+ */
