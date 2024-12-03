@@ -27,7 +27,7 @@ p:hover {
     opacity: 100%;
 }
 
-iframe {
+iframe, object{
     width: 80vw;
     height: calc(50vw);
     max-height: 90vh;
