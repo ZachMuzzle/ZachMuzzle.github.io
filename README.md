@@ -42,14 +42,14 @@
   <p align="center">
     A portfolio app built using Typescript
     <br />
-    <a href="https://github.com/ZachMuzzle/E-Portfolio"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ZachMuzzle/ZachMuzzle.github.io"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/ZachMuzzle/E-Portfolio">View Demo</a>
+    <a href="https://www.zacharymuzzleman.com/">View Demo</a>
     ·
-    <a href="https://github.com/ZachMuzzle/E-Portfolio/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/ZachMuzzle/ZachMuzzle.github.io/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/ZachMuzzle/E-Portfolio/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/ZachMuzzle/ZachMuzzle.github.io/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -88,7 +88,7 @@
 
 <!-- [![Dino App][product-screenshot]](https://www.thedinoappgenerator.com) -->
 
-<b><p align="left"> TO BE UPDATED <p><b>
+<b><p align="left"> This project is an E-Portfolio that was built using TypeScript. The goal was to transition from JavaScript to TypeScript as I want to build using a more strong typing language. Also less dynamic since I am familiar with Java and C Language. Another goal was also to use vanilla CSS and understand what I'm doing related to responsive design, using flexbox/grid, and how to troubleshoot issues without the help of a framework.<p><b>
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -96,7 +96,7 @@
 
 
 ### Built With
-<b><p align="left"> TO BE UPDATED <p><b>
+<!-- <b><p align="left"> TO BE UPDATED <p><b> -->
 
 <!-- * [![Next][Next.js]][Next-url] -->
 <!-- * [![React][React.js]][React-url] -->
@@ -107,12 +107,14 @@
 <!-- * [![Bootstrap][Bootstrap.com]][Bootstrap-url] -->
 <!-- * [![JQuery][JQuery.com]][JQuery-url] -->
 <!-- [![Javascript][Javascript.com]][Javascript-url] -->
-<!-- [![NodeJS][NodeJS.com]][NodeJS-url] -->
-<!-- [![Express][Express.com]][Express-url] -->
+[![NodeJS][NodeJS.com]][NodeJS-url]
+[![Express][Express.com]][Express-url]
+[![Docker][Docker.com]][Docker-url]
+[![Typescript][Typescript.com]][Typescript-url]
+
 <!-- [![AWS EC2][AWSEC2.com]][AWSEC2-url] -->
 <!-- [![AWS RDS][AWSRDS.com]][AWSRDS-url] -->
 <!-- [![Firebase][Firebase.com]][Firebase-url] -->
-<!-- [![Docker][Docker.com]][Docker-url] -->
 
 
 
@@ -127,12 +129,16 @@
 ## Getting Started
 
 This section will cover how you can get this running locally on your own computer
-<b><p align="left"> TO BE UPDATED <p><b>
-<!-- 1. Have `npm` installed: run `npm install -g npm` use `npm -v` to check which version you are on
+<b><p align="left"> Please feel free to fork the repo if you would like to use for your own projects or  any purpose you feel like<p><b>
+<p align="left">To get started you will need to install a few packages. <p>
+
+1. Have `npm` installed: run `npm install -g npm` use `npm -v` to check which version you are on
 2. In [package.json](package.json) under `scripts` we add `dev: nodemon index.js`. This is for running the server automatically after each change.
 3. Install express: run `npm install express`
 4. Install nodemon: `npm install nodemon --save-dev`
 5. Next you want to make sure you have Node up-to-date, check using `node --version`.
+6. You will need to also install docker. Follow the guide [here](https://docs.docker.com/engine/install/ubuntu/).
+<!--
 6. You can download `nvm` as an easy way to switch between different nodes. [nvm github](https://github.com/nvm-sh/nvm)
 7. You can also just download to the latest version if you don't want to use nvm:  
    1. `sudo npm cache clean -f`
@@ -146,19 +152,25 @@ This section will cover how you can get this running locally on your own compute
 11. Now use the **X-RapidAPI-Key** and place that in your `.env` file.
 12. Now you should be able to run `npm run dev` again and now when the button is clicked images will be displayed. -->
 
-### Prerequisites
-<b><p align="left"> TO BE UPDATED <p><b>
+<!-- ### Prerequisites
+<b><p align="left"> TO BE UPDATED <p><b> -->
 <!-- Make sure npm is installed
 * npm
   ```sh
   npm install npm@latest -g
   ``` -->
 
-### Other Items to Install
-<!-- 1. There a few other packages that will need to be installed. However, I didn't keep great documention on how they were installed. Please look at the [package.json](package.json) file to see all dependencies that are needed to get this project running locally. -->
-<b><p align="left"> TO BE UPDATED <p><b>
+<!-- ### Other Items to Install
+1. There a few other packages that will need to be installed. However, I didn't keep great documention on how they were installed. Please look at the [package.json](package.json) file to see all dependencies that are needed to get this project running locally.
+<b><p align="left"> TO BE UPDATED <p><b> -->
 ### Using Docker
-<b><p align="left"> TO BE UPDATED <p><b>
+<b><p align="left"> Docker is used to build and deploy the project locally. <p><b>
+
+1. The Dockerfile and the docker-compose.yml are setup to run this project locally. You will need to update the volumes path in the `yml` to fit your directory.
+2. When ready to build and deploy using the line in your terminal `docker compose up ---build`. If for any reason you want the project to run in the background use `docker compose up ---build -d`
+
+### GitHub Actions
+<b><p>When the project is has a merge or rebase into the master branch a Github Action builds and deploys the project to the `gh-pages` branch which will then be live on you Github.io or whatever domain you have the page routing to. <p><b>
 <!-- 1. This project has been updated to be able to run in the dev and prod env by creating a docker image and running the container. Below will walk you through on how you can setup the codebase to run on your machine.
       1. The `Dockerfile` and `docker-compose.yml` are setup to be used in the dev env
       2. Below in the CLI you will have to build the docker image. Normally we would do the building and then then running manually, but with the help of the `docker-compose.yml` file it allows this project to be built and run automatically. You can choose either to run on the CLI or run in the background
@@ -281,7 +293,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Zachary Muzzleman - zmuzzlem@gmail.com
 
-Project Link: [https://github.com/zachmuzzle/Dino_App](https://github.com/zachmuzzle/Dino_App)
+Project Link: [GitHub Repo](https://github.com/ZachMuzzle/ZachMuzzle.github.io)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -343,3 +355,5 @@ Project Link: [https://github.com/zachmuzzle/Dino_App](https://github.com/zachmu
 [Firebase-url]: https://firebase.google.com/
 [Docker.com]: https://img.shields.io/badge/docker-000000?style=for-the-badge&logo=docker&logoColor=white
 [Docker-url]: https://www.docker.com/
+[Typescript.com]:https://img.shields.io/badge/typescript-000000?style=for-the-badge&logo=typescript&logoColor=blue
+[Typescript-url]:https://www.typescriptlang.org/
