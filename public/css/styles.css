@@ -88,7 +88,11 @@ a {
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    background-color: #A3CEF1
+    background-color: #A3CEF1;
+    position:sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color, 0.8s cubic-bezier(.23,1,.32,1);
 }
 .navbar {
     top: 0;
