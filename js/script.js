@@ -7,7 +7,9 @@ class navBarToggle {
         this.navBarHome = document.getElementById(navBarHomeId);
         this.navLinks = document.getElementById(navLinksId);
         this.sectionsWrapper = document.querySelector(sectionsWrapperClass);
-        this.addEventListeners();
+        this.lastWidth = window.innerWidth;
+        this.lastHeight = window.innerHeight;
+        // this.addEventListeners(); // For when method is private
     }
     toggleClasses() {
         this.burger.classList.toggle('active');
@@ -31,7 +33,13 @@ class navBarToggle {
         this.buttonClick = !this.buttonClick;
     }
     handleWindowResize() {
-        if (this.burger.classList.contains('active')) {
+        const currWidth = window.innerWidth;
+        const currHeight = window.innerHeight;
+        if (currWidth == this.lastWidth)
+            return;
+        else if (currHeight == this.lastWidth)
+            return;
+        else if (this.burger.classList.contains('active')) {
             this.toggleClasses();
             this.navBar.style.display = "none";
             this.buttonClick = false;
@@ -54,3 +62,4 @@ class navBarToggle {
     }
 }
 const navToggle = new navBarToggle("burger", "nav-links", "nav-bar-home", ".navbar", ".sectionsWrapper");
+navToggle.addEventListeners();
