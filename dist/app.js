@@ -1,21 +1,20 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const path_1 = __importDefault(require("path"));
-const index_1 = require("./routes/index");
-const app = (0, express_1.default)();
+import express from 'express';
+import { router as indexRouter } from './routes/index.js';
+// import {router as aboutMeRouter } from './routes/aboutMe';
+// import {router as resumeRouter } from './routes/resume';
+// import {router as projectsRouter } from './routes/projects';
+// import {router as contactRouter } from './routes/contact';
+const app = express();
 // Middleware to parse JSON
-app.use(express_1.default.json());
+app.use(express.json());
 // Middleware to serve static files (HTML, CSS, JS)
-app.use(express_1.default.static(path_1.default.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static('public'));
 // Middleware to parse request body (if needed)
-app.use(express_1.default.json());
-app.use(express_1.default.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 // Use the routes
-app.use('/', index_1.router);
+app.use('/', indexRouter);
 // Routes not needed unless we deploy backend to another service.
 // app.use('/about-me', aboutMeRouter);
 // app.use('/resume', resumeRouter);
@@ -25,4 +24,4 @@ app.use('/', index_1.router);
 app.use((req, res) => {
     res.status(404).send('Page not found');
 });
-exports.default = app;
+export default app;
