@@ -1,10 +1,10 @@
 import express, { Application, Request, Response } from 'express';
 import path from 'path';
-import { router as indexRouter } from './routes/index';
-import {router as aboutMeRouter } from './routes/aboutMe';
-import {router as resumeRouter } from './routes/resume';
-import {router as projectsRouter } from './routes/projects';
-import {router as contactRouter } from './routes/contact';
+import { router as indexRouter } from './routes/index.js';
+// import {router as aboutMeRouter } from './routes/aboutMe';
+// import {router as resumeRouter } from './routes/resume';
+// import {router as projectsRouter } from './routes/projects';
+// import {router as contactRouter } from './routes/contact';
 
 
 const app: Application = express();
@@ -12,7 +12,8 @@ const app: Application = express();
 // Middleware to parse JSON
 app.use(express.json());
 // Middleware to serve static files (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static('public')); 
 // Middleware to parse request body (if needed)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

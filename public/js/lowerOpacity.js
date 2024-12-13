@@ -1,14 +1,9 @@
-"use strict";
+import { scrollPosition } from "./scrollPosition.js";
 function lowerBackgroundColor(querySelector) {
     try {
         const colorItem = document.querySelector(`.${querySelector}`);
         window.addEventListener('scroll', () => {
-            /* Calculate scroll position relative to the viewport height */
-            const scrollTop = window.scrollY;
-            const maxScroll = window.innerHeight;
-            /* Calculate the new opacity base on the scroll position */
-            const scrollPosition = Math.max(1 - scrollTop / maxScroll, 0.5); // mim opacity of 0.5
-            const scrollPositionStr = scrollPosition.toString();
+            const scrollPositionStr = scrollPosition();
             if (parseInt(scrollPositionStr, 10) < 1) {
                 colorItem.style.background = `rgba(255, 255, 255, ${scrollPositionStr})`;
             }

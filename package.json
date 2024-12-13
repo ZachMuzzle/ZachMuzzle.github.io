@@ -1,6 +1,7 @@
 {
   "name": "typescript-portfolio-app",
   "version": "1.0.0",
+  "type": "module",
   "description": "Typescript portfolio",
   "main": "index.js",
   "scripts": {
