@@ -44,7 +44,7 @@ class navBarToggle {
             const scrollPositionStr = scrollPosition();
 
             if(parseInt(scrollPositionStr,10) < 1) {
-                this.sectionsWrapper.style.filter = 'blur(3px)';
+                this.sectionsWrapper.style.filter = 'blur(1px)';
             }
         }
 
@@ -69,7 +69,7 @@ class navBarToggle {
         const scrollPositionStr = scrollPosition();
         if(this.buttonClick && (parseInt(scrollPositionStr,10) < 1)) {
 
-            this.sectionsWrapper.style.filter = 'blur(3px)';
+            this.sectionsWrapper.style.filter = 'blur(1px)';
             
         } else if (this.buttonClick && (parseInt(scrollPositionStr,10) == 1)) {
             this.sectionsWrapper.style.filter = 'none';
