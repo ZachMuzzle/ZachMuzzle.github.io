@@ -6,6 +6,9 @@ class navBarToggle {
     private navBar: HTMLElement;
     private navBarHome: HTMLElement;
     private sectionsWrapper: HTMLElement;
+    private lastWidth: number;
+    private lastHeight: number;
+
 
     constructor(burgerId: string, navLinksId: string, navBarHomeId: string, navBarClass: string, sectionsWrapperClass: string) {
         this.buttonClick = false;
@@ -14,8 +17,11 @@ class navBarToggle {
         this.navBarHome = document.getElementById(navBarHomeId) as HTMLElement;
         this.navLinks = document.getElementById(navLinksId) as HTMLElement;
         this.sectionsWrapper = document.querySelector(sectionsWrapperClass) as HTMLElement
+        this.lastWidth = window.innerWidth;
+        this.lastHeight = window.innerHeight;
 
-        this.addEventListeners();
+
+        // this.addEventListeners(); // For when method is private
     }
 
     private toggleClasses(): void {
@@ -46,7 +52,12 @@ class navBarToggle {
     }
 
     private handleWindowResize(): void {
-        if(this.burger.classList.contains('active')) {
+        const currWidth = window.innerWidth;
+        const currHeight = window.innerHeight;
+
+        if(currWidth == this.lastWidth) return;
+        else if(currHeight == this.lastWidth) return;
+        else if(this.burger.classList.contains('active')) {
             this.toggleClasses();
             this.navBar.style.display = "none";
             this.buttonClick = false;
@@ -65,7 +76,7 @@ class navBarToggle {
         }
     }
 
-    private addEventListeners(): void {
+    public addEventListeners(): void {
         this.burger.addEventListener('click', () => this.handleBurgerClick());
         window.addEventListener('resize', () => this.handleWindowResize());
         window.addEventListener('scroll', () => this.handleBlurWhenBurgerOpen());
@@ -73,3 +84,4 @@ class navBarToggle {
 }
 
 const navToggle = new navBarToggle("burger","nav-links","nav-bar-home",".navbar",".sectionsWrapper");
+navToggle.addEventListeners();
