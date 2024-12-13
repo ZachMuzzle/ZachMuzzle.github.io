@@ -8,6 +8,7 @@ class navBarToggle {
         this.navLinks = document.getElementById(navLinksId);
         this.sectionsWrapper = document.querySelector(sectionsWrapperClass);
         this.lastWidth = window.innerWidth;
+        this.lastHeight = window.innerHeight;
         // this.addEventListeners(); // For when method is private
     }
     toggleClasses() {
@@ -26,16 +27,18 @@ class navBarToggle {
             this.navBarHome.style.display = "none";
             const scrollPositionStr = scrollPosition();
             if (parseInt(scrollPositionStr, 10) < 1) {
-                this.sectionsWrapper.style.filter = 'blur(3px)';
+                this.sectionsWrapper.style.filter = 'blur(1px)';
             }
         }
         this.buttonClick = !this.buttonClick;
     }
     handleWindowResize() {
         const currWidth = window.innerWidth;
-        if (currWidth == this.lastWidth) {
+        const currHeight = window.innerHeight;
+        if (currWidth == this.lastWidth)
             return;
-        }
+        else if (currHeight == this.lastWidth)
+            return;
         else if (this.burger.classList.contains('active')) {
             this.toggleClasses();
             this.navBar.style.display = "none";
@@ -46,7 +49,7 @@ class navBarToggle {
     handleBlurWhenBurgerOpen() {
         const scrollPositionStr = scrollPosition();
         if (this.buttonClick && (parseInt(scrollPositionStr, 10) < 1)) {
-            this.sectionsWrapper.style.filter = 'blur(3px)';
+            this.sectionsWrapper.style.filter = 'blur(1px)';
         }
         else if (this.buttonClick && (parseInt(scrollPositionStr, 10) == 1)) {
             this.sectionsWrapper.style.filter = 'none';
