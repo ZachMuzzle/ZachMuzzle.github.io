@@ -16,4 +16,4 @@ function lowerBackgroundColor(querySelector: string) {
     }
 }
 
-lowerBackgroundColor('header');
+// lowerBackgroundColor('header');
