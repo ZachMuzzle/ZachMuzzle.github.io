@@ -16,4 +16,4 @@ function lowerBackgroundColor(querySelector) {
         console.log(`An error occurred while attempting to lower opacity for '${querySelector}': `, error);
     }
 }
-lowerBackgroundColor('header');
+// lowerBackgroundColor('header');

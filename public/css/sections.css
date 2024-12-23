@@ -1,5 +1,7 @@
 .sectionsWrapper {
     transition: filter 0.8s cubic-bezier(.23,1,.32,1);
+    margin-left: 0;
+    transition: margin-left 0.5s;
 }
 .section-container {
     display: flex;
