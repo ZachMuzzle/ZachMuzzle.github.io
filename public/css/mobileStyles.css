@@ -1,0 +1,44 @@
+.mobileLeftMenu {
+    background: rgb(163, 206, 241);
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+    opacity: 0;
+    width: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s 0.5s, width 0.5s;
+}
+
+.nav-bar-pages-left {
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    grid-auto-flow: row;
+    gap: 20px;
+}
+
+.mobile-nav-bar-home, .mobile-nav-bar-menu-item{
+    height: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.473);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visible {
+    opacity: 1;
+    width: 150px;
+    visibility: visible;
+    transition: opacity 0.5s, visibility 0s 0s, width 0.5s;
+}
+
+.addMarginLeft {
+    margin-left: 150px;
+    transition: margin-left 0.5s;
+}
+/* @media screen and (max-width:800px) {
+    .sectionsWrapper {
+        margin-left: 150px;
+    }
+    
+} */
