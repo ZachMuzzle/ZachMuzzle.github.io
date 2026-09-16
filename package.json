@@ -5,7 +5,7 @@
   "description": "Typescript portfolio",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build",
+    "prestart": "npm run build:backend",
     "start": "node dist/server.js",
     "build:backend": "tsc --project tsconfig.backend.json",
     "build:frontend": "tsc --project tsconfig.frontend.json",
