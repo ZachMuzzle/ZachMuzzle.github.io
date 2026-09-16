@@ -1,63 +1,59 @@
-import { scrollPosition } from "./scrollPosition.js";
-class navBarToggle {
-    constructor(burgerId, navLinksId, navBarClass, sectionsWrapperClass) {
-        this.buttonClick = false;
-        this.burger = document.getElementById(burgerId);
-        this.navBar = document.querySelector(navBarClass);
-        this.navLinks = document.getElementById(navLinksId);
-        this.sectionsWrapper = document.querySelector(sectionsWrapperClass);
-        this.lastWidth = window.innerWidth;
-        // this.addEventListeners(); // For when method is private
-    }
-    toggleClasses() {
-        this.burger.classList.toggle('active');
-        this.navLinks.classList.toggle('show');
-        this.navBar.classList.toggle('visible');
-        this.sectionsWrapper.classList.toggle('addMarginLeft');
-    }
-    handleBurgerClick() {
-        this.toggleClasses();
-        // if(this.buttonClick) {
-        //     this.navBar.style.display = "none";
-        //     this.sectionsWrapper.style.marginLeft = '0';
-        // } else {
-        //     this.navBar.style.display = "block";
-        //     this.sectionsWrapper.style.marginLeft = "150px";
-        //     // const scrollPositionStr = scrollPosition();
-        //     // if(parseInt(scrollPositionStr,10) < 1) {
-        //     //     this.sectionsWrapper.style.filter = 'blur(1px)';
-        //     // }
-        // }
-        this.buttonClick = !this.buttonClick;
-    }
-    handleWindowResize() {
-        const currWidth = window.innerWidth;
-        const currHeight = window.innerHeight;
-        if (currWidth == this.lastWidth)
-            return;
-        else if (currHeight == this.lastWidth)
-            return;
-        else if (this.burger.classList.contains('active')) {
-            this.toggleClasses();
-            this.navBar.style.display = "none";
-            this.sectionsWrapper.style.marginLeft = '0';
-            this.buttonClick = false;
-        }
-    }
-    handleBlurWhenBurgerOpen() {
-        const scrollPositionStr = scrollPosition();
-        if (this.buttonClick && (parseInt(scrollPositionStr, 10) < 1)) {
-            this.sectionsWrapper.style.filter = 'blur(1px)';
-        }
-        else if (this.buttonClick && (parseInt(scrollPositionStr, 10) == 1)) {
-            this.sectionsWrapper.style.filter = 'none';
-        }
-    }
-    addEventListeners() {
-        this.burger.addEventListener('click', () => this.handleBurgerClick());
-        window.addEventListener('resize', () => this.handleWindowResize());
-        // window.addEventListener('scroll', () => this.handleBlurWhenBurgerOpen());
-    }
+"use strict";
+/**
+ * Mobile menu toggle and navbar scroll behavior
+ */
+// Mobile menu toggle
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+function toggleMobileMenu() {
+    if (!burger || !mobileMenu)
+        return;
+    burger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    mobileMenu.classList.toggle('closed');
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
 }
-const navToggle = new navBarToggle("burger", "nav-links-left", ".mobileLeftMenu", ".sectionsWrapper");
-navToggle.addEventListeners();
+function closeMobileMenu() {
+    if (!burger || !mobileMenu)
+        return;
+    burger.classList.remove('active');
+    mobileMenu.classList.remove('open');
+    mobileMenu.classList.add('closed');
+    document.body.style.overflow = '';
+}
+if (burger && mobileMenu) {
+    burger.addEventListener('click', toggleMobileMenu);
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+            closeMobileMenu();
+        }
+    });
+}
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+function handleNavbarScroll() {
+    if (!navbar)
+        return;
+    const currentScroll = window.scrollY;
+    if (currentScroll > 50) {
+        navbar.classList.add('scrolled');
+    }
+    else {
+        navbar.classList.remove('scrolled');
+    }
+    lastScroll = currentScroll;
+}
+window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+// Handle resize - close mobile menu if switching to desktop
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+        closeMobileMenu();
+    }
+});
